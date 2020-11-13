@@ -1,71 +1,73 @@
-# Phase 1 Project Template - Minimum Viable Product (MVP)
+# Major Motion Picture Box Office Analysis
 
-![blueprint](images/blueprint.png)
+**Authors:** Billy Lopez, Elliot Macy
 
-This repository is like a blueprint, providing structure for your first End of Phase Project. We suggest you base your Phase 1 project off of this repository so you can focus less on formatting and organization, and more on the _analysis and communication skills_ that will support your progress through the course. This template is designed to make your project portfolio-ready in order to impress the future employers who will review it. 
 
-## Repository Contents
+## Overview
 
-Below is a list of the contents of this repository - instructions for using them are in the next section.
+This project analyzes 20 years of movie data and offers strategic insights for Microsoft to launch a financially sucessful film studio.
 
-- `README.md`: The README for this repo branch explaining it's contents - you're reading it now
-- `TEMPLATE_README.md`: An example of a project README that provides a brief overview of your whole project
-- `dsc-phase1-project-template.ipynb`: A starter Jupyter Notebook with headings, code examples and guiding questions
-- `DS_Project_Presentation_Template.pdf`: A starter slide deck presenting your project - here is an [editable version](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy)
-- `data` folder: A folder for the data you reference with your code
-- `images` folder: A folder for the images you reference in your files 
-- `.gitignore`: A hidden file that tells git to not track certain files and folders
 
-## Instructions For Using This Repository
+## Business Problem
 
-### Fork This Repository
+We answer three questions relating to box office profit and revenue for major motion pictures from the past 20 years.
 
-**For a group project**, have only one team member do these steps:
+1. How does the correlation between runtime and revenue vary between different MPAA ratings?
+2. Which months of the year and days of the week are the optimal releases dates?
+3. Do the optimal release dates differ from foreign to domestic audiences?
 
-1. Fork this repository to your personal account
-   - In GitHub, go to this repository and click the "Fork" button in the upper right
-   
-2. Change the name of your fork of this repo to a _descriptive_ name of your choosing
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Options" -> "Repository Name" -> "Rename"
-   - Make the name descriptive, since potential employers will read it. Ex: "Microsoft-Movie-Analysis" is better than "Project-1"
+Descriptive analysis of the relationshipes between profit and revenue, on the one hand, and release dates and runtimes, on the other, points toward very different approaches depending on MPAA rating and audience.
 
-3. Use `git clone` to clone your fork of this repo to your local computer
+Namely, revenues increase with strciter MPAA ratings from G to PG-13 but fall dramtically for R and NC-17 ratings. Optimizing runtimes for maximum revenue depends on the target rating: longer movies do better with stricter ratings.
 
-4. **For a group project**, add team members as collaborators to your fork of this repo
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Manage Access" -> "Invite Teams or People"
-   - Add your project team members as collaborators & send them the repo GitHub URL
+Moreover, profits peak yearly for movies released in June and December and peak weekly for Tuesday and Wednesday releases. However, upon further analysis, we found that movies intended for international audiences peak monthly in July only and weekly on Mondays.
 
-### Work In Your Fork Of This Repository
 
-- Work in the repo clone that you created on your local machine
-- Start writing and coding in the Jupyter Notebook `dsc-phase1-project-template.ipynb`
-- Fill in the README template in `TEMPLATE_README.md`
-- Use `git add`, `git commit`, and `git push` often to update your repo in GitHub
-   - For a refresher on how to do this and why it's important, review Topic 2: Bash and Git
+## Data
 
-### Use The Slide Template
+Our analysis utilizes data obtained from Rotten Tomatoes (RT) and The Movie Database (TMDB). The combined dataset represents the profit, revenue, and other key features of all 21st century major motion pictures. We focus on release date, audience, rating, and runtime, and how these features relate with profit and revenue as well as each other.
 
-1. Go to [this link](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy) to make an editable copy of the slide deck in your own Google Drive account
-2. Go to "Slide," select "Change Theme," and pick a theme you like so your presentation doesn't look like everyone else's
-3. **For a group project**, click the "Share" button and add your teammates as editors
 
-### Tidy Up Your Project
+## Methods
 
-- Change the file name of the Jupyter Notebook (`dsc-phase1-project-template.ipynb`) to something more descriptive
-- Save an appropriately-named PDF version of your slide deck to the repository
-- Rename the template readme you've been working in by running `git mv TEMPLATE_README.md README.md`
-- Delete unnecessary files from the repo using `git rm`
-   - The presentation PDF: `DS_Project_Presentation_Template.pdf`
-   - This README file: `README.md`
-   - Any unused data files in the `data` folder
-   - Any unused images in the `images` folder
+To prepare our data for analysis we dropped the unrelated columns and engineered several new features. After selecting our features, we dropped movies missing quantitative values. For missing categorical values, we either dropped the movie in question or replaced the value with 'None'.
 
-### Submit Your Project
 
-To submit your project, please follow the instructions in the "Project Submission & Review" page in the Milestones course.
+## Results
 
-***
-### Notes
+We began by modeling the relationship between revenue and runtime as well as profit and release date. Finding these results insightful, we expanded our analysis to include additional features: runtime, in relation to revenue and rating, and audience, in relation to profit and release date.
 
-- The visualizations in the notebook use best practices for visualization that you should try to emulate. For example, they have clear axes, descriptive titles, and appropriate number formatting
-- The `dsc-phase1-project-template.ipynb` is intended to be the _final version_ of your project. The first notebook you create will not look like this. You are encouraged to start with a very disorderly notebook and clean it as you go
+
+### Visual 1
+![graph1](./images/viz1.png)
+
+## Conclusions
+
+As demonstrated, revenues increase with strciter MPAA ratings from G to PG-13 but fall dramtically for R and NC-17 ratings. Optimizing runtimes for maximum revenue depends on the target rating: longer movies do better with stricter ratings.
+
+Moreover, profits peak yearly for movies released in June and December and peak weekly for Tuesday and Wednesday releases. However, upon further analysis, we found that movies intended for international audiences peak monthly in July only and weekly on Mondays.
+
+Our analysis leads to several reccomendations for Microsoft to maximize their film studio's profit and revenue.
+
+Look for projects likely to receive pg-13 ratings while ensuring they are not rated R.
+Restrict G and PG rated movies to shorter durations than movies rated PG-13 and R.
+Plan domestic release dates for Tuesdays and Wednesdays in June and January. For interntational markets, plan releases for Mondays in July.
+
+
+## For More Information
+
+Please review our full analysis in [our Jupyter Notebook](./dsc-phase1-project-template.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+
+For any additional questions, please contact Billy and Elliot.
+
+## Repository Structure
+
+Describe the structure of your repository and its contents, for example:
+
+```
+├── README.md                           <- The top-level README for reviewers of this project
+├── dsc-phase1-project-template.ipynb   <- Narrative documentation of analysis in Jupyter notebook
+├── DS_Project_Presentation.pdf         <- PDF version of project presentation
+├── data                                <- Both sourced externally and generated from code
+└── images                              <- Both sourced externally and generated from code
+```
